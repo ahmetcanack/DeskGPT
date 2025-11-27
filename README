@@ -31,3 +31,12 @@ src/config_local.example.hpp
 - LovyanGFX display driver
 - ArduinoJson
 - WiFiClientSecure + HTTPS
+
+## Build & Upload
+This project is built using PlatformIO + VSCode.
+
+1. Clone the repo
+2. Copy `src/config_local.example.hpp` → `src/config_local.hpp`
+3. Fill Wi-Fi + OpenAI credentials
+4. Open with VSCode
+5. Click “PlatformIO: Upload”
