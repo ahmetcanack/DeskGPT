@@ -1,11 +1,15 @@
+# DeskGPT SC01 — ESP32-S3 Touchscreen Desktop Assistant
 
-This directory is intended for PlatformIO Test Runner and project tests.
+DeskGPT is a standalone GPT-powered personal assistant running on the WT32-SC01 Plus / Panlee SC01 Plus (ESP32-S3-WROVER-N16R2).  
+It features a 3.5" capacitive touchscreen, Wi-Fi connectivity, and a modular UI system built with LovyanGFX.
 
-Unit Testing is a software testing method by which individual units of
-source code, sets of one or more MCU program modules together with associated
-control data, usage procedures, and operating procedures, are tested to
-determine whether they are fit for use. Unit testing finds problems early
-in the development cycle.
+## ✨ Features (current)
+- ESP32-S3-WROVER (16MB flash, 2MB PSRAM)
+- 3.5" 480x320 IPS LCD (ST7796) + capacitive touch (FT6336)
+- Modular project layout (UI / network / OpenAI / audio / storage)
+- Clean Wi-Fi manager
+- OpenAI Chat API client (chat completions)
+- Boot UI + status bar + chat pane layout
 
-More information about PlatformIO Unit Testing:
-- https://docs.platformio.org/en/latest/advanced/unit-testing/index.html
+## 🔒 Secrets
+Real Wi-Fi credentials + API keys go into:
