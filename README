@@ -13,3 +13,21 @@ It features a 3.5" capacitive touchscreen, Wi-Fi connectivity, and a modular UI 
 
 ## 🔒 Secrets
 Real Wi-Fi credentials + API keys go into:
+src/config_local.hpp
+This file is **ignored** via `.gitignore`.
+
+A template file is provided:
+src/config_local.example.hpp
+## 🛠 Planned
+- On-screen keyboard
+- Scrollable chat view
+- Local history saving
+- I2S speaker output
+- I2S MEMS microphone input
+- Voice assistant mode
+
+## 🧱 Stack
+- PlatformIO + Arduino framework
+- LovyanGFX display driver
+- ArduinoJson
+- WiFiClientSecure + HTTPS
