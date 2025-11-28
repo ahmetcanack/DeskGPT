@@ -1,6 +1,5 @@
 #pragma once
 
-// LovyanGFX V1 API kullanacağız
 #ifndef LGFX_USE_V1
   #define LGFX_USE_V1
 #endif
@@ -110,15 +109,11 @@ extern LGFX Display;
 // Basit UI fonksiyonları
 void ui_init();
 void ui_draw_boot();
-void ui_handle_touch();
-
-// Global display objesi
-extern LGFX Display;
-
-// Basit UI fonksiyonları
-void ui_init();
-void ui_draw_boot();
-
-// Yeni eklediğimiz fonksiyonlar:
 void ui_draw_main_layout(const String& statusLine);
+
+// Chat için yeni fonksiyonlar
+void ui_chat_clear();
+void ui_draw_user_message(const String& text);
+void ui_draw_assistant_message_stream(const String& text);
+
 void ui_handle_touch();

@@ -1,10 +1,9 @@
 #include <Arduino.h>
 #include <WiFi.h>
 
-// ----------- WiFi & OpenAI config -----------
 #include "ui/ui_screen.hpp"
 #include "net/net_openai.hpp"
-#include "config_local.hpp"  
+#include "config_local.hpp"   // WiFi & API key buradan geliyor
 
 // ----------- Yardımcı fonksiyonlar -----------
 
@@ -76,17 +75,27 @@ void setup()
 
   Serial.println("[DeskGPT] UI ready.");
 
-  // --- OpenAI test (şimdilik sadece Serial) ---
+  // --- OpenAI test (ekrana da yazdıracağız) ---
   if (WiFi.status() == WL_CONNECTED && strlen(CFG_OPENAI_API_KEY) > 0) {
+
+    // Kullanıcı mesaji (mikrofondan gelecek gibi davranıyoruz)
+    String userMsg = "Kanka kendini 3 maddeyle cok kisaca tanitir misin?";
+
+    // Chat alanini temizle ve once kullaniciyi yaz
+    ui_chat_clear();
+    ui_draw_user_message(userMsg);
+
     String reply;
-    bool ok = net::openai_chat(CFG_OPENAI_API_KEY,
-                               "Kanka bu bir test mesajidir, bana kisaca cevap ver.",
-                               reply);
+    bool ok = net::openai_chat(CFG_OPENAI_API_KEY, userMsg, reply);
     if (ok) {
       Serial.println("[DeskGPT] Assistant reply:");
       Serial.println(reply);
+
+      // Cevabi ekrana typewriter gibi yaz
+      ui_draw_assistant_message_stream(reply);
     } else {
       Serial.println("[DeskGPT] OpenAI chat call FAILED.");
+      ui_draw_assistant_message_stream("OpenAI hata verdi, seri loga bak.");
     }
   } else {
     Serial.println("[DeskGPT] Skipping OpenAI test (no WiFi or API key).");
